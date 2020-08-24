@@ -157,7 +157,7 @@ public class Main {
     private static void Selenium4MiscFetures(ChromeDriver chromeDriver){
 
         // New Tab
-        ChromeDriver newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
+        WebDriver newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
         newTab.get("http://executeautomation.com/demosite/Login.html");
 
         //login
