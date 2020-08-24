@@ -46,7 +46,11 @@
                         <configuration>
                             <projectName>ExecuteAutomation</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+                            <inputDirectory>${project.build.directory}</inputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
                         </configuration>
                     </execution>
                 </executions>
