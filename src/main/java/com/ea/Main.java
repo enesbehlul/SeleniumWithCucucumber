@@ -120,7 +120,7 @@ public class Main {
         Set<TargetInfo> targetInfos = devTools.send(Target.getTargets());
         targetInfos.forEach(
                 targetInfo -> {
-                    var sessionId = devTools.send(attachToTarget(targetInfo.getTargetId(), Optional.of(false)));
+                    String sessionId = devTools.send(attachToTarget(targetInfo.getTargetId(), Optional.of(false)));
                     devTools.send(
                             Target.sendMessageToTarget(
                                     "{\"method\":\"Page.crash\"}",
