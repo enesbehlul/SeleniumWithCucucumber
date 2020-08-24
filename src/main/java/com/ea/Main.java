@@ -26,7 +26,7 @@ import static org.openqa.selenium.devtools.network.Network.loadingFailed;
 import static org.openqa.selenium.devtools.target.Target.attachToTarget;
 import static org.openqa.selenium.support.locators.RelativeLocator.withTagName;
 import org.openqa.selenium.remote.SessionId;
-import org.openqa.selenium.WebDriver.TargetLocator;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Main {
