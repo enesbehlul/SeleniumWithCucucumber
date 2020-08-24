@@ -156,7 +156,7 @@ public class Main {
     private static void Selenium4MiscFetures(ChromeDriver chromeDriver){
 
         // New Tab
-        TargetLocator newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
+        WebDriver newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
         newTab.get("http://executeautomation.com/demosite/Login.html");
 
         //login
@@ -176,11 +176,11 @@ public class Main {
         txtIntial.sendKeys("KK");
 
         //list of elements
-        WebElement lstElements = chromeDriver.findElements(withTagName("input")
+        List<WebElement> lstElements = chromeDriver.findElements(withTagName("input")
                 .below(By.xpath("//h2[text()=' User Form ']"))
                 .above(By.name("Save")));
 
-        WebElement[] elements = lstElements
+        List<WebElement> elements = lstElements
                 .stream()
                 .map(x -> x.getAttribute("input"));
 
