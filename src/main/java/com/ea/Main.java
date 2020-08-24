@@ -120,7 +120,7 @@ public class Main {
         Set<TargetInfo> targetInfos = devTools.send(Target.getTargets());
         targetInfos.forEach(
                 targetInfo -> {
-                    String sessionId = devTools.send(attachToTarget(targetInfo.getTargetId(), Optional.of(false)));
+                    SessionId sessionId = devTools.send(attachToTarget(targetInfo.getTargetId(), Optional.of(false)));
                     devTools.send(
                             Target.sendMessageToTarget(
                                     "{\"method\":\"Page.crash\"}",
@@ -153,7 +153,7 @@ public class Main {
     private static void Selenium4MiscFetures(ChromeDriver chromeDriver){
 
         // New Tab
-        var newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
+        TargetLocator newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
         newTab.get("http://executeautomation.com/demosite/Login.html");
 
         //login
@@ -161,23 +161,23 @@ public class Main {
         newTab.findElement(By.name("Password")).sendKeys("admin");
         newTab.findElement(By.name("Login")).submit();
 
-        var checkbox = chromeDriver.findElement(withTagName("input").below(By.name("Male")).toLeftOf(By.name("Hindi")));
+        WebElement checkbox = chromeDriver.findElement(withTagName("input").below(By.name("Male")).toLeftOf(By.name("Hindi")));
         checkbox.click();
         System.out.println(checkbox.getAttribute("name"));
 
 
-        var txtIntial = chromeDriver.findElement(withTagName("input")
+        WebElement txtIntial = chromeDriver.findElement(withTagName("input")
                 .below(By.id("TitleId"))
                 .above(By.id("FirstName")));
 
         txtIntial.sendKeys("KK");
 
         //list of elements
-        var lstElements = chromeDriver.findElements(withTagName("input")
+        WebElement lstElements = chromeDriver.findElements(withTagName("input")
                 .below(By.xpath("//h2[text()=' User Form ']"))
                 .above(By.name("Save")));
 
-        var elements = lstElements
+        WebElement[] elements = lstElements
                 .stream()
                 .map(x -> x.getAttribute("input"));
 
