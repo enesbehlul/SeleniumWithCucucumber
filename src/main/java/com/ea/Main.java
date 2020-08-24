@@ -18,6 +18,7 @@ import org.openqa.selenium.devtools.target.model.TargetInfo;
 import java.util.Optional;
 import java.util.Set;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.devtools.inspector.Inspector.detached;
@@ -181,7 +182,7 @@ public class Main {
                 .below(By.xpath("//h2[text()=' User Form ']"))
                 .above(By.name("Save")));
 
-        List<WebElement> elements = lstElements
+        Stream elements = lstElements
                 .stream()
                 .map(x -> x.getAttribute("input"));
 
